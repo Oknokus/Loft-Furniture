@@ -1,0 +1,14 @@
+{
+  "users": [
+      {
+        "id": 1,
+        "email": "ksukonko@mail.ru"
+      },
+      {
+        "id": 2,
+        "email": "ksukonko1@mail.ru"
+      }
+  ],
+  "product": [    
+  ]
+}

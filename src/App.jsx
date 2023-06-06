@@ -1,8 +1,11 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import ky from "ky";
 
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
+
 // import Contact from "./pages/Contact";
 // import Catalog from "./pages/Catalog";
 // import Product from "./pages/Product";
@@ -10,10 +13,21 @@ import About from "./pages/About";
 // import Room from "./pages/Room";
 // import NotFound from "./pages/NotFound";
 
+import api from "./config/api";
+
 
 const App = () => {
+  useEffect(() => {
+    api("users").json()
+    .then(res => console.log(res))
+  }, [])
+  
+  
   return ( 
-    <>   
+    <>
+       
+      
+
       <Routes>
 
         <Route path="/" element={<Layout/>}> 
