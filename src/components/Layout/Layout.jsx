@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import Header from "./Header";
 import Footer from "./Footer";
+import Catalog from "../../pages/Catalog";
 
 import styles from './Layout.module.css';
 
@@ -10,8 +11,8 @@ import styles from './Layout.module.css';
 const Layout = () => {
     return (
         <>
-            <h1>Hello!! Layout</h1>
             <Header />
+            <Catalog />                       
             <Footer />
         </>
     )
