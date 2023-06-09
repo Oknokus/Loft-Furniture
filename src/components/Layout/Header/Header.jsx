@@ -16,6 +16,8 @@ import officeImg from "../../../assets/categoryImg/officeImg.svg";
 import childrensroomImg from "../../../assets/categoryImg/childrensroomImg.svg";
 import etcImg from "../../../assets/categoryImg/etcImg.svg";
 
+import bgTitleImg from "../../../assets/bgTitleImg.png"
+
 
 import styles from './Header.module.css';
 
@@ -116,6 +118,19 @@ const Header = () => {
                             <a href="#"><img src={etcImg} alt="etcImg" /></a>
                         </li>
                     </ul>
+                </div>
+                <div className={styles.layout_container}>
+                    <img src={bgTitleImg} alt="bgTitleImg" />
+                    
+                    <div className={styles.container_title}>
+                        <h2>LOFT <br/>
+                            МЕБЕЛЬ
+                        </h2>
+                        <p>Современная и удобная мебель в Анапе</p>
+                        <button>СМОТРЕТЬ КАТАЛОГ</button>
+
+                    </div>
+                    <p>Хиты продаж</p>
                 </div>
             </div>
                            
