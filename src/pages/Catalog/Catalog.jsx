@@ -9,11 +9,7 @@ import wishlistImg from "../../assets/wishlistImg.svg"
 import styles from './Catalog.module.css';
 
 
-const Catalog = () => {
-    const alert = () => {
-        console.log("RRRR")
-    }
-
+const Catalog = () => { 
     const[catalog, setCatalog] = useState([])
     useEffect(() => {
         api("users").json()
@@ -24,8 +20,7 @@ const Catalog = () => {
         <div className={styles.container}>  
             {
                 catalog.map(element => (                                   
-                        <ul 
-                            onClick={() => alert()}
+                        <ul                             
                             className={styles.catalog_container}
                             key={element.id}> 
                          
@@ -45,10 +40,11 @@ const Catalog = () => {
                             </li>
                             <li>
                                 <h4>{element.price}</h4>
-                            </li>  
-                            <li>
-                                <p>Размеры</p>
-                                <p><span>Ширина</span> <span>Глубина</span> <span>Высота</span></p>
+                            </li> 
+
+                            <li className={styles.catalog_container_size}>
+                                <p className={styles.collection_description}>Размеры</p>
+                                <div className={styles.collection_size}><span>Ширина</span> <span>Глубина</span> <span>Высота</span></div>
                             </li>  
                                                      
                         </ul>

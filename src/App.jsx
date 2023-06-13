@@ -6,19 +6,21 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 
 
+
 // import Contact from "./pages/Contact";
 import Catalog from "./pages/Catalog";
 // import Product from "./pages/Product";
 // import Cart from "./pages/Cart";
 // import Room from "./pages/Room";
 // import NotFound from "./pages/NotFound";
+import Register from "./pages/Register";
+// import Login from "./pages/Login";
 
 import api from "./config/api";
 
 
 const App = () => {  
-  return ( 
-    <>
+  return (   
       <Routes>
 
         <Route path="/" element={<Layout/>}> 
@@ -34,8 +36,10 @@ const App = () => {
 
         </Route> 
 
-      </Routes>      
-    </> 
+        <Route path="/register" element={<Register/>}/> 
+        {/* <Route path="/login" element={<Login/>}/>  */}
+
+      </Routes>  
   )
 }
 

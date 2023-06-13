@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import phoneImg from "../../../assets/phoneImg.svg";
 import deliveryImg from "../../../assets/deliveryImg.svg";
@@ -16,6 +17,7 @@ import officeImg from "../../../assets/categoryImg/officeImg.svg";
 import childrensroomImg from "../../../assets/categoryImg/childrensroomImg.svg";
 import etcImg from "../../../assets/categoryImg/etcImg.svg";
 
+
 import bgTitleImg from "../../../assets/bgTitleImg.png"
 
 
@@ -30,7 +32,7 @@ const Header = () => {
                     <div>
                         <ul className={styles.header_nav}>
                             <li>
-                                <a href="#">Главная</a>
+                                <Link to={"/"}>Главная</Link>
                             </li>
                             <li>
                                 <a href="#">О нас</a>
@@ -80,7 +82,7 @@ const Header = () => {
                         <div className={styles.headerWhite_icon}>
                             <a href="#"><img src={wishlistImg} alt="wishlistImg" /></a>
                             <a href="#"><img src={bagImg} alt="bagImg" /></a>
-                            <a href="#"><img src={profileImg} alt="profileImg" /></a>
+                            <Link to={"/register"}><img src={profileImg} alt="profileImg" /></Link>
                         </div>
                     </div>
                 </div>

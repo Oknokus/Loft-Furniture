@@ -4,15 +4,16 @@
     grid-template-columns: repeat(4, 1fr);
     margin: 0 auto;     
 }
-.catalog_container{
-    width: 263px;
-    height: min-content;     
+.catalog_container{  
+    height: 500px;     
     position: relative;   
-    background: var(#FFFFFF);
-    text-align: center;  
+    background: var(#FFFFFF);    
 }
 .catalog_container:hover{
-    box-shadow: 0px 1px 9px rgba(0, 0, 0, 0.11);  
+    box-shadow: 0px 1px 9px rgba(0, 0, 0, 0.11);   
+    :last-child{
+    display: block;
+}    
 }
 .catalog_container li{
     list-style-type: none;
@@ -28,4 +29,22 @@
     height: 150px;
     padding: 74px 32px 54px 32px;
     padding-inline-start: 0;
+}
+.collection_description{  
+    font-weight: 400;    
+    font-size: 12px;
+    line-height: 14px;  
+    color: var(--bgColor-inputPlacegolder);   
+}
+.collection_size{   
+    display: flex; 
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 11px;
+    color: var(--bgColor-titleDes-size); 
+    justify-content: space-between;
+}
+
+.catalog_container_size{ 
+    display: none;
 }
