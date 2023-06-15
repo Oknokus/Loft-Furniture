@@ -46,3 +46,7 @@
     margin-left: 240px;
     transform: translateY(-30px);  
 }
+.form_containerItem{ 
+    display: flex;
+    justify-content: center;
+}

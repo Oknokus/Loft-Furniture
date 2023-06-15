@@ -101,6 +101,9 @@
     display: flex;
     margin-right: 30px;
 }
+.headerWhite_icon span{
+    cursor: pointer;
+}
 .headerWhite_icon > a img{
     width: 15px;
     height: 18px;

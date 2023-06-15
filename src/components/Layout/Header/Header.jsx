@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useContext } from 'react';
+import { CustumContext } from '../../../config/context';
 
 import phoneImg from "../../../assets/phoneImg.svg";
 import deliveryImg from "../../../assets/deliveryImg.svg";
@@ -24,7 +26,15 @@ import bgTitleImg from "../../../assets/bgTitleImg.png"
 import styles from './Header.module.css';
 
 
-const Header = () => {
+
+const Header = () => { 
+    const location = useLocation();
+
+    const {
+        user,
+        logOut
+    } = useContext(CustumContext);
+
     return (
         <>
             <div className={styles.container}>
@@ -80,9 +90,14 @@ const Header = () => {
                         </div>
 
                         <div className={styles.headerWhite_icon}>
-                            <a href="#"><img src={wishlistImg} alt="wishlistImg" /></a>
-                            <a href="#"><img src={bagImg} alt="bagImg" /></a>
-                            <Link to={"/register"}><img src={profileImg} alt="profileImg" /></Link>
+                            <Link to={user.email.length ? "/favorites" : "/register"}><img src={wishlistImg} alt="wishlistImg" /></Link>
+                            <Link to={user.email.length ? "/cart" : "/register"}><img src={bagImg} alt="bagImg" /></Link>
+                            {
+                                location.pathname === "/room" ? 
+                                <span onClick={() => logOut()}>Выйти</span>
+                                :
+                                <Link to={user.email.length ? "/room" : "/register"}><img src={profileImg} alt="profileImg" /></Link>
+                            }
                         </div>
                     </div>
                 </div>

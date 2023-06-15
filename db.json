@@ -1,43 +1,33 @@
 {
   "users": [
-      {
-        "id": 1,
-        "email": "ksukonko@mail.ru",
-        "img": "https://sc04.alicdn.com/kf/Hf4ec8b9ca3dd48fc99552178f3e2fb1fY.jpg",
-        "colection": "Валенсия Beige",
-        "name": "Барные стулья",
-        "price": "2 300₽"
-      },
-      {
-        "id": 2,
-        "email": "ksukonko@mail.ru",
-        "img": "https://sc04.alicdn.com/kf/Hf4ec8b9ca3dd48fc99552178f3e2fb1fY.jpg",
-        "colection": "Валенсия Beige",
-        "name": "Барные стулья и стёкла",
-        "price": "2 3300₽"
-      }, {
-        "id": 3,
-        "email": "ksukonko@mail.ru",
-        "img": "https://sc04.alicdn.com/kf/Hf4ec8b9ca3dd48fc99552178f3e2fb1fY.jpg",
-        "colection": "Валенсия Beige",
-        "name": "Барные стулья",
-        "price": "2 300₽"
-      }, {
-        "id": 4,
-        "email": "ksukonko@mail.ru",
-        "img": "https://sc04.alicdn.com/kf/Hf4ec8b9ca3dd48fc99552178f3e2fb1fY.jpg",
-        "colection": "Валенсия Beige",
-        "name": "Барные стулья",
-        "price": "2 300₽"
-      }, {
-        "id": 5,
-        "email": "ksukonko@mail.ru",
-        "img": "https://sc04.alicdn.com/kf/Hf4ec8b9ca3dd48fc99552178f3e2fb1fY.jpg",
-        "colection": "Валенсия Beige",
-        "name": "Барные стулья",
-        "price": "2 300₽"
-      }
+    {
+      "email": "oknokus@gmail.com",
+      "password": "$2a$10$EYavb3PcHdFRSC6kO2ilJOqJop0ioQuUA4nT91dKz/IaEqcZf6126",
+      "name": "KIRYL",
+      "surName": "SUKONKA",
+      "phone": "+375 (29) 589-48-49",
+      "point": 0,
+      "orders": [],
+      "carts": [],
+      "city": "",
+      "home": "",
+      "street": "",
+      "id": 1
+    },
+    {
+      "email": "oknokus1@gmail.com",
+      "password": "$2a$10$n6E.nE7P5oksxw5MtMMQAuTEv42HbmIF7BBq9roIonNKM8xXVQ7vC",
+      "name": "KIRYL",
+      "surName": "SUKONKA",
+      "phone": "+375 (29) 589-48-49",
+      "point": 0,
+      "orders": [],
+      "carts": [],
+      "city": "",
+      "home": "",
+      "street": "",
+      "id": 2
+    }
   ],
-  "product": [    
-  ]
+  "product": []
 }
