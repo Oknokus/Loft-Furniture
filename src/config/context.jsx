@@ -6,7 +6,9 @@ import { useEffect } from "react";
 export const CustumContext = createContext();
 
 export const Context = (props) => {   
-    const [user, setUser] = useState({email: ""});
+    const[user, setUser] = useState({email: ""});
+    const[catalog, setCatalog] = useState([]);
+    const[product, setProduct] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -56,7 +58,11 @@ export const Context = (props) => {
         navigate("/"),
         localStorage.removeItem("user")
     };
-     
+ 
+    const getCardApi = () => { 
+        api("product/?_sort=sale&_order=desc&_limit=12").json()
+        .then(res => setCatalog(res))         
+    }    
 
 
     const value = {        
@@ -64,7 +70,11 @@ export const Context = (props) => {
         setUser,
         registerUser,
         loginUser,
-        logOut       
+        logOut,
+        catalog,
+        getCardApi,
+        product, 
+        setProduct      
     };
 
 

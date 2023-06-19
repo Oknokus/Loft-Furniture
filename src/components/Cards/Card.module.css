@@ -1,3 +1,6 @@
+.p_catalog_desc{
+    margin-left: 140px;
+}
 .container{ 
     width: 1140px;       
     display: grid;  
@@ -5,9 +8,9 @@
     margin: 0 auto;     
 }
 .catalog_container{  
-    height: 500px;     
+    height: 600px;     
     position: relative;   
-    background: var(#FFFFFF);    
+    background: var(--bgColor-link);    
 }
 .catalog_container:hover{
     box-shadow: 0px 1px 9px rgba(0, 0, 0, 0.11);   
@@ -47,4 +50,8 @@
 
 .catalog_container_size{ 
     display: none;
+}
+.product_color{
+    width: 40px;
+    height: 40px;    
 }
