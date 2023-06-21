@@ -90,7 +90,7 @@ const Header = () => {
                         </div>
 
                         <div className={styles.headerWhite_icon}>
-                            <Link to={user.email.length ? "/favorites" : "/register"}><img src={wishlistImg} alt="wishlistImg" /></Link>
+                            <Link to={"/favorites"}><img src={wishlistImg} alt="wishlistImg" /></Link>
                             <Link to={user.email.length ? "/cart" : "/register"}><img src={bagImg} alt="bagImg" /></Link>
                             {
                                 location.pathname === "/room" ? 

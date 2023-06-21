@@ -7,7 +7,9 @@ import { Link, useLocation } from 'react-router-dom';
 
 import api from '../../config/api';
 
-import wishlistImg from "../../assets/wishlistImg.svg"
+import wishlistImg from "../../assets/wishlistImg.svg";
+import heartIcon from "../../assets/heartIcon.png";
+
 
 
 import styles from './Card.module.css';
@@ -17,13 +19,15 @@ const Card = () => {
     const location = useLocation();
     const {
         catalog,        
-        getCardApi 
+        getCardApi,
+        clickHandlefavorites,
+        favorites
     } = useContext(CustumContext)
   
     useEffect(() => {
         getCardApi()      
     }, [])
-
+    console.log(favorites)
     return (
         <>
             <p className={styles.p_catalog_desc}>Хиты продаж</p>  
@@ -32,15 +36,17 @@ const Card = () => {
                     catalog.map(element => (                                   
                         <ul                             
                              className={styles.catalog_container}
-                                key={element.id}>                             
+                                key={element.id}>                                                           
                                 <img 
                                     className={styles.container_icon}
-                                    src={wishlistImg} alt="wishlistImg" />
-                                <li>
-                                <Link to={`/product/${element.id}`}>                    
-                                    <img 
-                                        className={styles.container_img}
-                                        src={`../${element.image}`}  alt="" /> 
+                                    onClick={() => clickHandlefavorites(element)}                                   
+                                       
+                                    src={favorites.find(item => item.id === element.id) ? heartIcon: wishlistImg} alt="wishlistImg" />                                                                 
+                                <li>                                 
+                                    <Link to={`/product/${element.id}`}>                    
+                                        <img 
+                                            className={styles.container_img}
+                                            src={`../${element.image}`}  alt="" /> 
                                     </Link>  
                                 </li>                     
                                 <li>

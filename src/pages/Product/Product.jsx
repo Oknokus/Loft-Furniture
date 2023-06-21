@@ -4,18 +4,23 @@ import { useContext, useEffect, useState } from 'react';
 import api from '../../config/api';
 
 import wishlistImg from "../../assets/wishlistImg.svg";
+import heartIcon from "../../assets/heartIcon.png";
 
 
-import styles from './Product.module.css';
+
 import { CustumContext } from '../../config/context';
 import Card from '../../components/Cards/Card';
+
+import styles from './Product.module.css';
 
 
 const Product = () => {  
     const params = useParams();
     const {
         product, 
-        setProduct
+        setProduct,
+        clickHandlefavorites,
+        favorites
     } = useContext(CustumContext);
 
     useEffect(() => {
@@ -39,7 +44,9 @@ const Product = () => {
                             <div className={styles.product_itemfavorites}>
                                 <h4 className={styles.product_price}>{product.price}</h4>
                                 <button className={styles.product_button}>Купить</button>
-                                <span className={styles.product_favorites}><img src={wishlistImg} alt=""/>Добавить в желаемое</span>
+                                <span 
+                                    className={styles.product_favorites}
+                                    onClick={() => clickHandlefavorites(product)}><img src={favorites.find(elem => elem.id === product.id) ? heartIcon : wishlistImg} alt=""/>Добавить в желаемое</span>
                             </div>
                             <div className={styles.product_options}>
                                 <span className={styles.product_span}>Цвет: <div className={styles.product_color} style={{backgroundColor:`${product.color}`}}></div></span>

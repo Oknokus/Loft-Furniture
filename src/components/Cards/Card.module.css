@@ -15,8 +15,8 @@
 .catalog_container:hover{
     box-shadow: 0px 1px 9px rgba(0, 0, 0, 0.11);   
     :last-child{
-    display: block;
-}    
+    display: block;    
+    }
 }
 .catalog_container li{
     list-style-type: none;
@@ -25,6 +25,13 @@
     position: absolute;
     right: 16px;
     top: 21px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.container_icon:hover{
+    transform: scale(1.2);
 }
 .container_img{
     background-repeat: no-repeat;

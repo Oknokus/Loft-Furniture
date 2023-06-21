@@ -43,9 +43,18 @@
     line-height: 14px;   
     color: var(--bgColor-inputPlacegolder);  
     align-items: center;
+    display: flex;
 }
 .product_favorites img{
     margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+   
+}
+.product_favorites img:hover{
+    transform: scale(1.2);
 }
 .product_itemfavorites{
     display: flex;

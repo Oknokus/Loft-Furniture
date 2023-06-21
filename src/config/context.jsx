@@ -9,11 +9,15 @@ export const Context = (props) => {
     const[user, setUser] = useState({email: ""});
     const[catalog, setCatalog] = useState([]);
     const[product, setProduct] = useState([]);
+    const[favorites, setFavorites] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         if(localStorage.getItem("user") !== null) {
             setUser(JSON.parse(localStorage.getItem("user")))
+        }
+        if(localStorage.getItem("favorites") !== null) {
+            setFavorites(JSON.parse(localStorage.getItem("favorites")))
         }
     }, [])
 
@@ -62,8 +66,23 @@ export const Context = (props) => {
     const getCardApi = () => { 
         api("product/?_sort=sale&_order=desc&_limit=12").json()
         .then(res => setCatalog(res))         
-    }    
+    }  
+    
+    const clickHandlefavorites = (item) => {
+        let changefavorites = favorites.find(elem => elem.id === item.id)
 
+        if(changefavorites) {
+            setFavorites(favorites.filter(elem => elem.id !== item.id))           
+        } else {           
+            setFavorites([...favorites, item])        
+        }         
+    }
+
+    useEffect(() => {
+        localStorage.setItem("favorites", JSON.stringify(favorites))   
+    }, [favorites])
+        
+   
 
     const value = {        
         user,
@@ -74,7 +93,9 @@ export const Context = (props) => {
         catalog,
         getCardApi,
         product, 
-        setProduct      
+        setProduct,
+        clickHandlefavorites,
+        favorites     
     };
 
 
