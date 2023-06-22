@@ -2,6 +2,7 @@ import {createContext, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import api from "./api";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export const CustumContext = createContext();
 
@@ -10,8 +11,11 @@ export const Context = (props) => {
     const[catalog, setCatalog] = useState([]);
     const[product, setProduct] = useState([]);
     const[favorites, setFavorites] = useState([]);
+    const[search, setSearch] = useState("");
+    
     const navigate = useNavigate();
-
+    const location = useLocation();
+    
     useEffect(() => {
         if(localStorage.getItem("user") !== null) {
             setUser(JSON.parse(localStorage.getItem("user")))
@@ -82,6 +86,9 @@ export const Context = (props) => {
         localStorage.setItem("favorites", JSON.stringify(favorites))   
     }, [favorites])
         
+    useEffect(() => {               
+        setSearch("")       
+    }, [location.pathname])
    
 
     const value = {        
@@ -95,7 +102,9 @@ export const Context = (props) => {
         product, 
         setProduct,
         clickHandlefavorites,
-        favorites     
+        favorites,
+        setSearch,
+        search     
     };
 
 

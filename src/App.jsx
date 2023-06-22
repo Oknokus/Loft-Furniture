@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 
 // import Contact from "./pages/Contact";
-import Catalog from "./components/Cards";
+import Cards from "./components/Cards";
 import Product from "./pages/Product";
 import Favorites from "./pages/Favorites";
 import Cart from "./pages/Cart";
@@ -13,6 +13,7 @@ import Room from "./pages/Room";
 // import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Catalog from "./pages/Catalog/Catalog";
 
 
 const App = () => {  
@@ -23,8 +24,9 @@ const App = () => {
 
             <Route path="" element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
-            {/* <Route path="/contact" element={<Contact/>}/> */}
             <Route path="/catalog" element={<Catalog/>}/>
+            {/* <Route path="/contact" element={<Contact/>}/> */}
+            <Route path="/Cards" element={<Cards/>}/>
             <Route path="/product/:id" element={<Product/>}/>            
             {/* <Route path="*" element={<NotFound/>}/>    */}
             <Route path="/favorites" element={<Favorites/>}/>

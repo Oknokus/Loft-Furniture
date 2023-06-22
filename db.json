@@ -239,6 +239,32 @@
       "sale": 3332,
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность",
       "image": "./src/assets/products/product1.jpg"
-    }       
+    },
+    {
+      "id": 17,
+      "title": "Маррел Игге",
+      "category": "Барный стол",
+      "price": 2200,
+      "width": "423",
+      "deep": 423,
+      "height": "57",
+      "rating": 0,
+      "sale": 332,
+      "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность или нет",
+      "image": "./src/assets/products/product1.jpg"
+    },
+    {
+      "id": 18,
+      "title": "Дон Рейн",
+      "category": "Барный комод",
+      "price": 5200,
+      "width": "523",
+      "deep": 523,
+      "height": "600",
+      "rating": 0,
+      "sale": 32,
+      "description": "Безупречный стиль и индивидуальность или нет",
+      "image": "./src/assets/products/product1.jpg"
+    }             
   ]
 }

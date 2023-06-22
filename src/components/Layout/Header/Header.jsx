@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { CustumContext } from '../../../config/context';
+import { useEffect } from 'react';
 
 import phoneImg from "../../../assets/phoneImg.svg";
 import deliveryImg from "../../../assets/deliveryImg.svg";
@@ -29,11 +30,23 @@ import styles from './Header.module.css';
 
 const Header = () => { 
     const location = useLocation();
-
+    const navigate = useNavigate();
+  
     const {
         user,
-        logOut
+        logOut,
+        search,
+        setSearch
     } = useContext(CustumContext);
+
+    const changeSearch = (e) => {
+        if(location.pathname === "/catalog") {            
+            setSearch(e.target.value)
+        } else {       
+            navigate("/catalog/") 
+            setSearch(e.target.value)
+        }
+    }
 
     return (
         <>
@@ -48,12 +61,15 @@ const Header = () => {
                                 <a href="#">О нас</a>
                             </li>
                             <li>
+                                <Link to={"./catalog/"}>Каталог</Link>
+                            </li>
+                            <li>
                                 <a href="#">Контакты</a>
                             </li>
                         </ul>
                     </div>
 
-                    <div >
+                    <div>
                         <ul className={styles.header_info}>
                             <li>
                                 <img 
@@ -84,8 +100,10 @@ const Header = () => {
 
                         <div className={styles.headerWhite_containerItemsInput}>
                             <input 
-                                className={styles.headerWhite_input}
-                                type="text" placeholder='Поиск' />
+                                className={styles.headerWhite_input}  
+                                value={search}                                                       
+                                type="search" placeholder='Поиск' 
+                                onChange={e => changeSearch(e)}/>
                             <img src={searchImg} alt="searchImg" />
                         </div>
 
@@ -136,6 +154,7 @@ const Header = () => {
                         </li>
                     </ul>
                 </div>
+
                 <div className={styles.layout_container}>
                     <img src={bgTitleImg} alt="bgTitleImg" />
                     
@@ -145,7 +164,6 @@ const Header = () => {
                         </h2>
                         <p>Современная и удобная мебель в Анапе</p>
                         <button>СМОТРЕТЬ КАТАЛОГ</button>
-
                     </div>                  
                 </div>
             </div>

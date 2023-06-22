@@ -90,11 +90,11 @@
     height: 50px;
     margin-right: 37px;
     border: 1px solid var(--bgColor-input);
+    padding: 0px 40px
 }
 .headerWhite_input::placeholder{   
     font-size: 14px;
     line-height: 16px;
-    padding: 17px 49px;
     color: var(--bgColor-inputPlacegolder);
 }
 .headerWhite_icon{

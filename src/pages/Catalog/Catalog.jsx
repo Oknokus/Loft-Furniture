@@ -1,35 +1,38 @@
 import PropTypes from 'prop-types';
-import ky from "ky";
-import { useEffect, useState } from 'react';
+import api from '../../config/api';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { CustumContext } from '../../config/context';
-import { Link, useLocation } from 'react-router-dom';
 
-import api from '../../config/api';
+import Card from '../../components/Cards/Card';
 
 import wishlistImg from "../../assets/wishlistImg.svg";
 import heartIcon from "../../assets/heartIcon.png";
 
 
+import styles from './Catalog.module.css';
 
-import styles from './Card.module.css';
 
+const Catalog = () => {
+    const[catalog, setCatalog] = useState([]);
 
-const Card = () => { 
-    const location = useLocation();
+    
     const {
-        catalog,        
-        getCardApi,
+        favorites,
         clickHandlefavorites,
-        favorites
+        search,
+        setSearch
     } = useContext(CustumContext)
-  
+
     useEffect(() => {
-        getCardApi()      
-    }, [])
+        api(`product?title_like=${search}`).json()
+        .then(res => setCatalog(res))      
+    }, [search])
    
     return (
-        <>
+        <>        
             <p className={styles.p_catalog_desc}>Хиты продаж</p>  
             <div className={styles.container}>            
                 {
@@ -72,9 +75,9 @@ const Card = () => {
                         </ul>
                     ))
                 }          
-            </div>
+            </div>       
         </>
     )
 }
 
-export default Card;
+export default Catalog;
