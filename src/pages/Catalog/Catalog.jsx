@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import { CustumContext } from '../../config/context';
 
 import Card from '../../components/Cards/Card';
+import CatalogFilter from "../../components/CatalogFilter";
 
 import wishlistImg from "../../assets/wishlistImg.svg";
 import heartIcon from "../../assets/heartIcon.png";
@@ -18,23 +19,32 @@ import styles from './Catalog.module.css';
 const Catalog = () => {
     const[catalog, setCatalog] = useState([]);
 
-    
     const {
         favorites,
         clickHandlefavorites,
         search,
-        setSearch
+        setSearch,
+        category,
+        setCategory,
+        sort,
+        setSort
     } = useContext(CustumContext)
-
+   
     useEffect(() => {
+
+        // let queryParamsApi = `?${search.length ? `title_like=${search}&`: ""} ${category.length ?  `category=${category}&` : ""}${sort.length && sort !== "rate" ? `_sort=price$_order=${sort}&` : sort.length ? `_sort=rate&_order=desc` : ""}`
         api(`product?title_like=${search}`).json()
         .then(res => setCatalog(res))      
     }, [search])
-   
+    if(typeof(category) === "string") {
+        console.log(search.length)
+    }
+  
     return (
-        <>        
-            <p className={styles.p_catalog_desc}>Хиты продаж</p>  
-            <div className={styles.container}>            
+        <div className={styles.catalog}>
+            <CatalogFilter />            
+            <div className={styles.catalog_contaiter_item}>                         
+                <div className={styles.container}>            
                 {
                     catalog.map(element => (                                   
                         <ul                             
@@ -75,8 +85,9 @@ const Catalog = () => {
                         </ul>
                     ))
                 }          
-            </div>       
-        </>
+                </div>  
+            </div>     
+        </div>
     )
 }
 

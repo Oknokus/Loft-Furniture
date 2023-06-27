@@ -1,0 +1,49 @@
+.section_filter{    
+    width: 263px;
+    height: 591px;
+    padding: 20px 20px;    
+    background-color: var(--bgColor-link);  
+     
+}
+.filter_titleItem{      
+    font-weight: 400; 
+    margin-bottom: 20px;
+    font-size: 14px;  
+    line-height:16.41px;
+    color: var(--bgColor-inputPlacegolde);   
+   
+}
+.filter_value span{
+    width: 90px;
+    height: 30px;
+    border-radius: 3px;
+    background-color: var(--bgColor_input);
+    padding: 8px 22px;    
+}
+.filter_input{
+    margin-bottom: 10px;
+    width: 223px;
+    height: 10px;
+}
+.filter_desc{
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 17px;  
+}
+.filter_btn{   
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    background-color: transparent;
+    margin-left: 0;
+}
+.filter_container_color{
+    display: flex;
+   
+}
+.filter_color{
+    width: 30px;
+    height: 30px; 
+    margin-right: 5px;    
+}
+

@@ -1,0 +1,11 @@
+.inputSelect_label{
+    margin-right: 20px;
+    
+}
+.imputSelect_selectContainer{
+    position: relative;
+    margin-bottom: 20px;
+}
+.imputSelect_select{
+    padding: 5px; 
+}

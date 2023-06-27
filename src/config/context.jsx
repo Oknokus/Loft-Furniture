@@ -12,6 +12,8 @@ export const Context = (props) => {
     const[product, setProduct] = useState([]);
     const[favorites, setFavorites] = useState([]);
     const[search, setSearch] = useState("");
+    const [category, setCategory] = useState();
+    const [sort, setSort] = useState();
     
     const navigate = useNavigate();
     const location = useLocation();
@@ -104,7 +106,12 @@ export const Context = (props) => {
         clickHandlefavorites,
         favorites,
         setSearch,
-        search     
+        search,
+        category,
+        setCategory,
+        sort, 
+        setSort
+
     };
 
 

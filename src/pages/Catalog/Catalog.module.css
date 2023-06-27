@@ -1,10 +1,17 @@
+.catalog{
+    margin-left: 140px;
+    display: flex;
+}
+.catalog_contaiter_item{
+    margin-left: 28px;
+}
 .p_catalog_desc{
     margin-left: 140px;
 }
 .container{ 
-    width: 1140px;       
+    width: 849px;       
     display: grid;  
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     margin: 0 auto;     
 }
 .catalog_container{  
