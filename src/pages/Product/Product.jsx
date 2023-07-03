@@ -6,8 +6,6 @@ import api from '../../config/api';
 import wishlistImg from "../../assets/wishlistImg.svg";
 import heartIcon from "../../assets/heartIcon.png";
 
-
-
 import { CustumContext } from '../../config/context';
 import Card from '../../components/Cards/Card';
 

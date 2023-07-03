@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { CustumContext } from '../../config/context';
 
-import ImputSelect from "./ImputSelect";
+import RangeSlider from "./RangeSlider";
+import InputSelect from "./InputSelect";
 
 
 import styles from './CatalogFilter.module.css';
@@ -22,14 +23,12 @@ const CatalogFilter = () => {
     return (
         <div className={styles.section_filter}>
             <h2 className={styles.filter_titleItem}>Раздел</h2>
-
-                <ImputSelect title="Категория" state={category} setState={setCategory} array={["Барные стулья", "Диваны", "Двухспальные кровати", "Комоды"]} />
-                <ImputSelect title="Сортировать" state={sort} setState={setSort} array={["asc", "desc", "rate"]} />
+                <InputSelect title="Категория" state={category} setState={setCategory} array={["Барные стулья", "Диваны", "Двухспальные кровати", "Комоды"]} />
+                <InputSelect title="Сортировать" state={sort} setState={setSort} array={["asc", "desc", "rate"]} />
 
             <div>
                 <h2 className={styles.filter_titleItem}>Цена</h2>
-                <input type="range" 
-                    className={styles.filter_input}/>
+                <RangeSlider />
                 <div className={styles.filter_value}>
                     <span>200</span>
                     -

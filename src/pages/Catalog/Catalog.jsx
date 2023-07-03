@@ -28,17 +28,13 @@ const Catalog = () => {
         setCategory,
         sort,
         setSort
-    } = useContext(CustumContext)
-   
+    } = useContext(CustumContext)    
     useEffect(() => {
 
-        // let queryParamsApi = `?${search.length ? `title_like=${search}&`: ""} ${category.length ?  `category=${category}&` : ""}${sort.length && sort !== "rate" ? `_sort=price$_order=${sort}&` : sort.length ? `_sort=rate&_order=desc` : ""}`
-        api(`product?title_like=${search}`).json()
+        let queryParamsApi = `?${search.length ? `title_like=${search}&`: ""}${category.length ? `category=${category}&` : ""}${sort.length && sort !== "rate" ? `_sort=price&_order=${sort}&` : sort.length ? `_sort=rate&_order=desc` : ""}`
+        api(`product${queryParamsApi}`).json()
         .then(res => setCatalog(res))      
-    }, [search])
-    if(typeof(category) === "string") {
-        console.log(search.length)
-    }
+    }, [search, category, sort])   
   
     return (
         <div className={styles.catalog}>

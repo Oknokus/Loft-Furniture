@@ -11,9 +11,9 @@ export const Context = (props) => {
     const[catalog, setCatalog] = useState([]);
     const[product, setProduct] = useState([]);
     const[favorites, setFavorites] = useState([]);
-    const[search, setSearch] = useState("");
-    const [category, setCategory] = useState();
-    const [sort, setSort] = useState();
+    const[search, setSearch] = useState([]);
+    const [category, setCategory] = useState([]);
+    const [sort, setSort] = useState([]);
     
     const navigate = useNavigate();
     const location = useLocation();
