@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { useState } from 'react';
+import { debounce } from '@mui/material';
 
 const RangeSlider = ({slider, setSlider}) => { 
   const handleChange = (event, newValue) => {  
@@ -10,13 +11,13 @@ const RangeSlider = ({slider, setSlider}) => {
 
   return (
     <Box sx={{ width: "100%"}}>
-      <Slider
-        getAriaLabel={() => 'Temperature range'}
+      <Slider      
         value={slider}
-        onChange={handleChange}
+        onChange={debounce(handleChange, 100)}
         valueLabelDisplay="auto" 
+        step={10}
         min={0}
-        max={4000}      
+        max={3000}      
       />
     </Box>
   );

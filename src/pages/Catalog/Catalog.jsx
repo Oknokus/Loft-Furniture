@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { CustumContext } from '../../config/context';
+import { Slider } from '@mui/material';
 
 import Card from '../../components/Cards/Card';
 import CatalogFilter from "../../components/CatalogFilter";
@@ -14,7 +15,6 @@ import heartIcon from "../../assets/heartIcon.png";
 
 
 import styles from './Catalog.module.css';
-import { Slider } from '@mui/material';
 
 
 const Catalog = () => {
@@ -34,15 +34,13 @@ const Catalog = () => {
     } = useContext(CustumContext);   
 
     useEffect(() => {
+        let queryParamsFromTo = `price_gte=${slider[0]}&price_lte=${slider[1]}`;        
         let queryParamsApi = `?${search.length ? `title_like=${search}&`: ""}${category.length ? `category=${category}&` : ""}${sort.length && sort !== "rate" ? `_sort=price&_order=${sort}&` : sort.length ? `_sort=rate&_order=desc` : ""}`
-        api(`product${queryParamsApi}`).json()
+        
+        api(`product${queryParamsApi}${queryParamsFromTo}`).json()
         .then(res => setCatalog(res))      
-    }, [search, category, sort]);
+    }, [search, category, sort, slider]);
 
-    useEffect(() => {
-        console.log("1")
-    }, [slider])
-          
     return (
         <div className={styles.catalog}>
             <CatalogFilter slider={slider} setSlider={setSlider} />            

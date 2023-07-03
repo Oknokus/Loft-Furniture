@@ -2,13 +2,16 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { CustumContext } from '../../config/context';
+import { useEffect } from 'react';
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
 import RangeSlider from "./RangeSlider";
 import InputSelect from "./InputSelect";
 
 
 import styles from './CatalogFilter.module.css';
-import { useEffect } from 'react';
 
 
 const CatalogFilter = ({slider, setSlider}) => {
@@ -21,7 +24,11 @@ const CatalogFilter = ({slider, setSlider}) => {
 
     const color = ["red", "black", "yellow", "green", "orange", "blue "];
 
-   
+    const changeReset = () => {
+        setCategory("");
+        setSlider([0, 3000]);
+        setSort("")        
+    };  
    
     return (
         <div className={styles.section_filter}>
@@ -33,9 +40,9 @@ const CatalogFilter = ({slider, setSlider}) => {
                 <h2 className={styles.filter_titleItem}>Цена</h2>
                 <RangeSlider slider={slider} setSlider={setSlider} />
                 <div className={styles.filter_value}>
-                    <span>200</span>
+                    <span>{slider[0]}</span>
                     -
-                    <span>2000</span>
+                    <span>{slider[1]}</span>
                 </div>               
             </div>
             <h2 className={styles.filter_titleItem}>Цвет</h2>
@@ -57,7 +64,7 @@ const CatalogFilter = ({slider, setSlider}) => {
                         <input type="checkbox" />
                     </label>  
                 </div>  
-                <button className={styles.filter_btn}>Показать ещё</button>
+                <Button style={{width:"100%"}} variant="contained" onClick={() => changeReset()}>Сбросить</Button>
         </div>
     )
 }
