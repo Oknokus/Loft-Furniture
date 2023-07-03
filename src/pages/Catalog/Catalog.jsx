@@ -14,6 +14,7 @@ import heartIcon from "../../assets/heartIcon.png";
 
 
 import styles from './Catalog.module.css';
+import { Slider } from '@mui/material';
 
 
 const Catalog = () => {
@@ -27,18 +28,24 @@ const Catalog = () => {
         category,
         setCategory,
         sort,
-        setSort
-    } = useContext(CustumContext)    
-    useEffect(() => {
+        setSort,
+        slider,
+        setSlider      
+    } = useContext(CustumContext);   
 
+    useEffect(() => {
         let queryParamsApi = `?${search.length ? `title_like=${search}&`: ""}${category.length ? `category=${category}&` : ""}${sort.length && sort !== "rate" ? `_sort=price&_order=${sort}&` : sort.length ? `_sort=rate&_order=desc` : ""}`
         api(`product${queryParamsApi}`).json()
         .then(res => setCatalog(res))      
-    }, [search, category, sort])   
-  
+    }, [search, category, sort]);
+
+    useEffect(() => {
+        console.log("1")
+    }, [slider])
+          
     return (
         <div className={styles.catalog}>
-            <CatalogFilter />            
+            <CatalogFilter slider={slider} setSlider={setSlider} />            
             <div className={styles.catalog_contaiter_item}>                         
                 <div className={styles.container}>            
                 {

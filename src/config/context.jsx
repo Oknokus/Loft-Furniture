@@ -14,6 +14,7 @@ export const Context = (props) => {
     const[search, setSearch] = useState([]);
     const [category, setCategory] = useState([]);
     const [sort, setSort] = useState([]);
+    const [slider, setSlider] = useState([0, 40000]);
     
     const navigate = useNavigate();
     const location = useLocation();
@@ -110,8 +111,9 @@ export const Context = (props) => {
         category,
         setCategory,
         sort, 
-        setSort
-
+        setSort,
+        slider, 
+        setSlider
     };
 
 

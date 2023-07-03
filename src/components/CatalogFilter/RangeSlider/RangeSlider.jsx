@@ -3,24 +3,20 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { useState } from 'react';
 
-function valuetext() { 
-}
-
-const RangeSlider = () => {
-  const [value, setValue] = useState([20, 100]);
-
-  const handleChange = () => {
-   
+const RangeSlider = ({slider, setSlider}) => { 
+  const handleChange = (event, newValue) => {  
+    setSlider(newValue)
   };
 
   return (
     <Box sx={{ width: "100%"}}>
       <Slider
         getAriaLabel={() => 'Temperature range'}
-        value={value}
+        value={slider}
         onChange={handleChange}
-        valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
+        valueLabelDisplay="auto" 
+        min={0}
+        max={4000}      
       />
     </Box>
   );

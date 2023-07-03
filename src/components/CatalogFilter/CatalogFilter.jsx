@@ -8,17 +8,20 @@ import InputSelect from "./InputSelect";
 
 
 import styles from './CatalogFilter.module.css';
+import { useEffect } from 'react';
 
 
-const CatalogFilter = () => {
+const CatalogFilter = ({slider, setSlider}) => {
     const {
         category,
         setCategory,
         sort,
-        setSort
+        setSort       
     } = useContext(CustumContext);
 
     const color = ["red", "black", "yellow", "green", "orange", "blue "];
+
+   
    
     return (
         <div className={styles.section_filter}>
@@ -28,7 +31,7 @@ const CatalogFilter = () => {
 
             <div>
                 <h2 className={styles.filter_titleItem}>Цена</h2>
-                <RangeSlider />
+                <RangeSlider slider={slider} setSlider={setSlider} />
                 <div className={styles.filter_value}>
                     <span>200</span>
                     -
