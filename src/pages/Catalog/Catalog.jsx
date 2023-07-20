@@ -30,17 +30,23 @@ const Catalog = () => {
         sort,
         setSort,
         slider,
-        setSlider      
-    } = useContext(CustumContext);   
+        setSlider,       
+        user,
+        addCardUser,
+        addCountPlus,
+        addCountMinus
+     
+    } = useContext(CustumContext);  
 
     useEffect(() => {
         let queryParamsFromTo = `price_gte=${slider[0]}&price_lte=${slider[1]}`;        
         let queryParamsApi = `?${search.length ? `title_like=${search}&`: ""}${category.length ? `category=${category}&` : ""}${sort.length && sort !== "rate" ? `_sort=price&_order=${sort}&` : sort.length ? `_sort=rate&_order=desc` : ""}`
-        
+
+
         api(`product${queryParamsApi}${queryParamsFromTo}`).json()
         .then(res => setCatalog(res))      
     }, [search, category, sort, slider]);
-
+  
     return (
         <div className={styles.catalog}>
             <CatalogFilter slider={slider} setSlider={setSlider} />            
@@ -82,7 +88,32 @@ const Catalog = () => {
                                 <li className={styles.catalog_container_size}>
                                     <p className={styles.collection_description}>Размеры</p>
                                     <div className={styles.collection_size}><span>Ширина: {element.width}</span> <span>Глубина: {element.deep}</span> <span>Высота: {element.height}</span></div>
-                                </li>                                                         
+                                </li> 
+                                    {
+                                        user.carts?.some(el => el.id === element.id) ?
+                                        <div className={styles.containerBtn}>
+                                        <button 
+                                            className={styles.container_btn_cart}
+                                            onClick={() => addCountPlus(element.id)}
+                                            style={{backgroundColor:"red"}}
+                                            type="button">+</button>
+                                        <span>
+                                            {
+                                                user.carts.find(el => el.id === element.id).count
+                                            }                                            
+                                            </span>
+                                        <button 
+                                            className={styles.container_btn_cart}
+                                            onClick={() => addCountMinus(element.id)}
+                                            style={{backgroundColor:"green"}}
+                                            type="button">-</button>
+                                        </div> :
+                                        <button
+                                            className={styles.container_btn} 
+                                            onClick={() => addCardUser(element)}>Добавить в корзину
+                                        </button>
+                                    }
+                                                                            
                         </ul>
                     ))
                 }          

@@ -63,6 +63,7 @@ export const Context = (props) => {
                 localStorage.setItem('user', JSON.stringify(res.user))
             })
         }      
+      
         
     const logOut = () => {
         setUser({email: ""});
@@ -85,6 +86,62 @@ export const Context = (props) => {
         }         
     }
 
+    const addCardUser = (element) => { 
+        api.patch(`users/${user.id}`, {
+            headers: {
+                'content-type': 'application/json'
+            },
+           json: {
+                carts: [
+                    ...user.carts, 
+                    {...element, count: 1}
+                ]
+            }       
+        }).json().then((res) => {           
+           setUser(res),
+           localStorage.setItem("user", JSON.stringify(res))
+        })       
+    }
+
+    const addCountPlus = (id) => { 
+        api.patch(`users/${user.id}`, {
+            headers: {
+                'content-type': 'application/json'
+            },
+           json: {
+                carts: user.carts.map(el => {
+                    if(el.id === id) {
+                        return{...el, count: el.count + 1}
+                    } 
+                    return el                    
+                })
+            }       
+        }).json().then((res) => {           
+           setUser(res),
+           localStorage.setItem("user", JSON.stringify(res))
+        })       
+    }
+
+    const addCountMinus = (id) => { 
+        api.patch(`users/${user.id}`, {
+            headers: {
+                'content-type': 'application/json'
+            },
+           json: {
+                carts: user.carts.find(el=> el.id === id).count > 1 ? user.carts.map(el => {
+                    if(el.id === id) {
+                        return{...el, count: el.count - 1}
+                    } 
+                    return el                    
+                }): user.carts.filter(el => el.id !== id)
+            }       
+        }).json().then((res) => {           
+           setUser(res),
+           localStorage.setItem("user", JSON.stringify(res))
+        })       
+    }
+ 
+
     useEffect(() => {
         localStorage.setItem("favorites", JSON.stringify(favorites))   
     }, [favorites])
@@ -92,8 +149,9 @@ export const Context = (props) => {
     useEffect(() => {               
         setSearch("")       
     }, [location.pathname])
-   
 
+  
+ 
     const value = {        
         user,
         setUser,
@@ -113,9 +171,13 @@ export const Context = (props) => {
         sort, 
         setSort,
         slider, 
-        setSlider
+        setSlider,
+        addCardUser,
+        addCountPlus,
+        addCountMinus    
     };
 
+    
 
     return <CustumContext.Provider value={value}>
             {props.children}

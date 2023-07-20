@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "oknokus@gmail.com",
-      "password": "$2a$10$EYavb3PcHdFRSC6kO2ilJOqJop0ioQuUA4nT91dKz/IaEqcZf6126",
+      "password": "$2a$10$yIL0DehsdSP83/HPVdkacuJTkRllk4qoaL0UUHz0sCFpQdtxYyby6",
       "name": "KIRYL",
       "surName": "SUKONKA",
       "phone": "+375 (29) 589-48-49",
@@ -13,20 +13,6 @@
       "home": "",
       "street": "",
       "id": 1
-    },
-    {
-      "email": "oknokus1@gmail.com",
-      "password": "$2a$10$n6E.nE7P5oksxw5MtMMQAuTEv42HbmIF7BBq9roIonNKM8xXVQ7vC",
-      "name": "KIRYL",
-      "surName": "SUKONKA",
-      "phone": "+375 (29) 589-48-49",
-      "point": 0,
-      "orders": [],
-      "carts": [],
-      "city": "",
-      "home": "",
-      "street": "",
-      "id": 2
     }
   ],
   "product": [
@@ -43,7 +29,7 @@
       "sale": 1033,
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность",
       "image": "./src/assets/products/product1.jpg"
-    }, 
+    },
     {
       "id": 2,
       "title": "Валенсия Beige",
@@ -127,7 +113,8 @@
       "sale": 3332,
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность",
       "image": "./src/assets/products/product1.jpg"
-    },    {
+    },
+    {
       "id": 8,
       "title": "Валенсия Beige",
       "category": "Барные стулья",
@@ -140,7 +127,8 @@
       "sale": 3332,
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность",
       "image": "./src/assets/products/product1.jpg"
-    },    {
+    },
+    {
       "id": 9,
       "title": "Валенсия Beige",
       "category": "Барные стулья",
@@ -153,7 +141,8 @@
       "sale": 3332,
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность",
       "image": "./src/assets/products/product1.jpg"
-    },    {
+    },
+    {
       "id": 10,
       "title": "Валенсия Beige",
       "category": "Барные стулья",
@@ -166,7 +155,8 @@
       "sale": 3332,
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность",
       "image": "./src/assets/products/product1.jpg"
-    },    {
+    },
+    {
       "id": 11,
       "title": "Валенсия Beige",
       "category": "Барные стулья",
@@ -178,7 +168,8 @@
       "sale": 3332,
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность",
       "image": "./src/assets/products/product1.jpg"
-    },    {
+    },
+    {
       "id": 12,
       "title": "Валенсия Beige",
       "category": "Барные стулья",
@@ -190,7 +181,8 @@
       "sale": 3332,
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность",
       "image": "./src/assets/products/product1.jpg"
-    },    {
+    },
+    {
       "id": 13,
       "title": "Валенсия Beige",
       "category": "Барные стулья",
@@ -202,7 +194,8 @@
       "sale": 3332,
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность",
       "image": "./src/assets/products/product1.jpg"
-    },    {
+    },
+    {
       "id": 14,
       "title": "Валенсия Beige",
       "category": "Барные стулья",
@@ -215,7 +208,8 @@
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность",
       "image": "./src/assets/products/product1.jpg",
       "color": "yellow"
-    },    {
+    },
+    {
       "id": 15,
       "title": "Валенсия Beige",
       "category": "Диваны",
@@ -227,7 +221,8 @@
       "sale": 3332,
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность",
       "image": "./src/assets/products/product1.jpg"
-    },     {
+    },
+    {
       "id": 16,
       "title": "Валенсия Beige",
       "category": "Двухспальные кровати",
@@ -265,6 +260,6 @@
       "sale": 32,
       "description": "Безупречный стиль и индивидуальность или нет",
       "image": "./src/assets/products/product1.jpg"
-    }             
+    }
   ]
 }
